@@ -2,24 +2,20 @@ import { useEffect, useState } from "react";
 
 import { Button } from './Button';
 
-import '../styles/sidebar.scss';
+import GenreResponseInterface from '../model/GenreResponseInterface';
 
-interface GenreResponseProps {
-  id: number;
-  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
-  title: string;
-}
+import '../styles/sidebar.scss';
 
 interface SideBarProps {
   selectedGenreId: number;
-  genres: GenreResponseProps[];
+  genres: GenreResponseInterface[];
   handleClickButton: (id: number) => void
 }
 
 export function SideBar(props: SideBarProps) {
   // Complete aqui
   const [selectedGenreId, setSelectedGenreId] = useState(props.selectedGenreId);
-  const [genres, setGenres] = useState<GenreResponseProps[]>(props.genres);
+  const [genres, setGenres] = useState<GenreResponseInterface[]>(props.genres);
   const { handleClickButton } = props;
 
   useEffect(() => {

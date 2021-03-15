@@ -1,32 +1,20 @@
 import { useEffect, useState } from 'react';
 import { MovieCard } from './MovieCard';
 
-import '../styles/content.scss';
-interface MovieProps {
-  Title: string;
-  Poster: string;
-  Ratings: Array<{
-    Source: string;
-    Value: string;
-  }>;
-  Runtime: string;
-}
+import GenreResponseInterface from '../model/GenreResponseInterface';
+import MovieInterface from '../model/MovieInterface';
 
-interface GenreResponseProps {
-  id: number;
-  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
-  title: string;
-}
+import '../styles/content.scss';
 
 interface ContentProps {
-  selectedGenre: GenreResponseProps;
-  movies: MovieProps[];
+  selectedGenre: GenreResponseInterface;
+  movies: MovieInterface[];
 }
 
 export function Content(props: ContentProps) {
   // Complete aqui
-  const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>(props.selectedGenre);
-  const [movies, setMovies] = useState<MovieProps[]>(props.movies);
+  const [selectedGenre, setSelectedGenre] = useState<GenreResponseInterface>(props.selectedGenre);
+  const [movies, setMovies] = useState<MovieInterface[]>(props.movies);
   
   useEffect(() => {
     setSelectedGenre(props.selectedGenre);

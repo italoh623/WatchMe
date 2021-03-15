@@ -5,7 +5,7 @@
 </h1> -->
 
 
-# To.do
+# WatchMe
 
 WatchMe is a movie listing website developed on RocketSeat's Ignite Bootcamp.
 

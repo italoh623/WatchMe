@@ -1,10 +1,3 @@
-<!-- <h1 align="center">
-
-<img src="https://raw.githubusercontent.com/gitirana/GoInk-web/main/src/assets/logo.svg" alt="goink" />
-
-</h1> -->
-
-
 # WatchMe
 
 WatchMe is a movie listing website developed on RocketSeat's Ignite Bootcamp.

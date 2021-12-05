@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MovieCard } from './MovieCard';
-import Header from './Header';
+import { Header } from './Header';
 
 import GenreResponseInterface from '../model/GenreResponseInterface';
 import MovieInterface from '../model/MovieInterface';

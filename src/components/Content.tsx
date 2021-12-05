@@ -15,7 +15,7 @@ interface ContentProps {
 export function Content(props: ContentProps) {
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseInterface>(props.selectedGenre);
   const [movies, setMovies] = useState<MovieInterface[]>(props.movies);
-  
+
   useEffect(() => {
     setSelectedGenre(props.selectedGenre);
     setMovies(props.movies);
@@ -28,7 +28,13 @@ export function Content(props: ContentProps) {
       <main>
         <div className="movies-list">
           {movies.map(movie => (
-            <MovieCard title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
+            <MovieCard
+              key={movie.Title}
+              title={movie.Title}
+              poster={movie.Poster}
+              runtime={movie.Runtime}
+              rating={movie.Ratings[0].Value}
+            />
           ))}
         </div>
       </main>

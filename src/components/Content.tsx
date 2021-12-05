@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MovieCard } from './MovieCard';
+import Header from './Header';
 
 import GenreResponseInterface from '../model/GenreResponseInterface';
 import MovieInterface from '../model/MovieInterface';
@@ -12,7 +13,6 @@ interface ContentProps {
 }
 
 export function Content(props: ContentProps) {
-  // Complete aqui
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseInterface>(props.selectedGenre);
   const [movies, setMovies] = useState<MovieInterface[]>(props.movies);
   
@@ -23,9 +23,7 @@ export function Content(props: ContentProps) {
 
   return (
     <div className="container">
-      <header>
-        <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
-      </header>
+      <Header title={selectedGenre.title} />
 
       <main>
         <div className="movies-list">

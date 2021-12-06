@@ -1,7 +1,10 @@
-# WatchMe
+<h1 align="center" style="color: #FBFBFB; font-weight: bold">
+
+<span style="color: #FAE800">Wache</span>Me
+
+</h1>
 
 WatchMe is a movie listing website developed on RocketSeat's Ignite Bootcamp.
-
 
 # Getting Started 
 

@@ -18,6 +18,8 @@ export function App() {
   const [movies, setMovies] = useState<MovieInterface[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseInterface>({} as GenreResponseInterface);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     api.get<GenreResponseInterface[]>('genres').then(response => {
       setGenres(response.data);
@@ -25,13 +27,16 @@ export function App() {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
+
     api.get<MovieInterface[]>(`movies/?Genre_id=${selectedGenreId}`).then(response => {
       setMovies(response.data);
+      setIsLoading(false);
     });
 
     api.get<GenreResponseInterface>(`genres/${selectedGenreId}`).then(response => {
       setSelectedGenre(response.data);
-    })
+    });
   }, [selectedGenreId]);
 
   const handleClickButton = useCallback((id: number) => {
@@ -46,7 +51,8 @@ export function App() {
         handleClickButton={handleClickButton}
       />
 
-      <Content 
+      <Content
+        isLoading={isLoading}
         movies={movies}
         selectedGenre={selectedGenre}
       />

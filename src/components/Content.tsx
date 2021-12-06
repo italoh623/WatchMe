@@ -6,10 +6,13 @@ import GenreResponseInterface from '../model/GenreResponseInterface';
 import MovieInterface from '../model/MovieInterface';
 
 import '../styles/content.scss';
+import { css } from "@emotion/react";
+import { ClipLoader } from 'react-spinners';
 
 interface ContentProps {
   selectedGenre: GenreResponseInterface;
   movies: MovieInterface[];
+  isLoading: boolean;
 }
 
 export function Content(props: ContentProps) {
@@ -27,7 +30,7 @@ export function Content(props: ContentProps) {
 
       <main>
         <div className="movies-list">
-          {movies.map(movie => (
+          {!props.isLoading ? movies.map(movie => (
             <MovieCard
               key={movie.Title}
               title={movie.Title}
@@ -35,7 +38,18 @@ export function Content(props: ContentProps) {
               runtime={movie.Runtime}
               rating={movie.Ratings[0].Value}
             />
-          ))}
+          )) : (
+            <div className="spinner">
+              <ClipLoader
+                color={"#FFFFFF"}
+                loading={props.isLoading}
+                css={css`
+              display: block;
+              margin: auto 0;
+            `}
+                size={100}
+              />
+            </div>)}
         </div>
       </main>
     </div>

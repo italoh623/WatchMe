@@ -1,4 +1,4 @@
-<h1 align="center" style="font-weight: bold">
+<h1 align="center" style="color: #FBFBFB; font-weight: bold">
 
 <span style="color: #FAE800">Wache</span>Me
 
